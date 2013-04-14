@@ -32,6 +32,17 @@ var conversion = map[string]string{
 
 // Go的时间格式好坑爹，还是按Python的来吧！！
 func Format(format string, t time.Time) string {
+	layout := layoutParser(format)
+	return t.Format(layout)
+}
+
+// Go的时间格式好坑爹，还是按Python的来吧！！
+func Parse(format, value string) (time.Time, error) {
+	layout := layoutParser(format)
+	return time.Parse(layout, value)
+}
+
+func layoutParser(format string) string {
 	formatChunks := strings.Split(format, "%")
 	var layout []string
 	for _, chunk := range formatChunks {
@@ -47,5 +58,5 @@ func Format(format string, t time.Time) string {
 			layout = append(layout, "%", chunk)
 		}
 	}
-	return t.Format(strings.Join(layout, ""))
+	return strings.Join(layout, "")
 }
