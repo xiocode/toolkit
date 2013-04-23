@@ -5,11 +5,12 @@
  * File:          main.go
  * Description:   Reflect Toolkit
  */
+
 package dig
 
 import (
 	"fmt"
-	"github.com/gosexy/to"
+	"github.com/xiocode/toolkit/to"
 	"reflect"
 )
 
