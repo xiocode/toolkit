@@ -3,68 +3,86 @@ package mahonia
 // Converters for the Shift-JIS encoding.
 
 import (
-	"sync"
+	"unicode/utf8"
 )
 
 func init() {
 	RegisterCharset(&Charset{
 		Name:    "Shift_JIS",
-		Aliases: []string{"MS_Kanji", "csShiftJIS", "SJIS"},
+		Aliases: []string{"MS_Kanji", "csShiftJIS", "SJIS", "ibm-943", "windows-31j", "cp932", "windows-932"},
 		NewDecoder: func() Decoder {
-			sjisOnce.Do(makeSjisTable)
-			return sjisTable.Decoder()
+			return decodeSJIS
 		},
 		NewEncoder: func() Encoder {
-			sjisOnce.Do(makeSjisTable)
-			return sjisTable.Encoder()
+			shiftJISOnce.Do(reverseShiftJISTable)
+			return encodeSJIS
 		},
 	})
 }
 
-var sjisOnce sync.Once
-
-var sjisTable MBCSTable
-
-func makeSjisTable() {
-	var b [2]byte
-
-	for jis0208, unicode := range jis0208ToUnicode {
-		if unicode == 0 {
-			continue
-		}
-
-		j1 := byte(jis0208 >> 8)
-		j2 := byte(jis0208)
-
-		if j1 < 95 {
-			b[0] = (j1+1)/2 + 112
-		} else {
-			b[0] = (j1+1)/2 + 176
-		}
-
-		if j1&1 == 1 {
-			b[1] = j2 + 31
-			if j2 >= 96 {
-				b[1]++
-			}
-		} else {
-			b[1] = j2 + 126
-		}
-
-		sjisTable.AddCharacter(rune(unicode), string(b[:]))
+func decodeSJIS(p []byte) (c rune, size int, status Status) {
+	if len(p) == 0 {
+		return 0, 0, NO_ROOM
 	}
 
-	for jis0201, unicode := range jis0201ToUnicode {
-		if unicode == 0 {
-			continue
-		}
-
-		sjisTable.AddCharacter(rune(unicode), string(byte(jis0201)))
+	b := p[0]
+	if b < 0x80 {
+		return rune(b), 1, SUCCESS
 	}
 
-	for i := '\x00'; i < 32; i++ {
-		sjisTable.AddCharacter(i, string(byte(i)))
+	if 0xa1 <= b && b <= 0xdf {
+		return rune(b) + (0xff61 - 0xa1), 1, SUCCESS
 	}
 
-	sjisTable.AddCharacter(0x7f, "\x7f")
+	if b == 0x80 || b == 0xa0 {
+		return utf8.RuneError, 1, INVALID_CHAR
+	}
+
+	if len(p) < 2 {
+		return 0, 0, NO_ROOM
+	}
+
+	jis := int(b)<<8 + int(p[1])
+	c = rune(shiftJISToUnicode[jis])
+
+	if c == 0 {
+		return utf8.RuneError, 2, INVALID_CHAR
+	}
+	return c, 2, SUCCESS
+}
+
+func encodeSJIS(p []byte, c rune) (size int, status Status) {
+	if len(p) == 0 {
+		return 0, NO_ROOM
+	}
+
+	if c < 0x80 {
+		p[0] = byte(c)
+		return 1, SUCCESS
+	}
+
+	if 0xff61 <= c && c <= 0xff9f {
+		// half-width katakana
+		p[0] = byte(c - (0xff61 - 0xa1))
+		return 1, SUCCESS
+	}
+
+	if len(p) < 2 {
+		return 0, NO_ROOM
+	}
+
+	if c > 0xffff {
+		p[0] = '?'
+		return 1, INVALID_CHAR
+	}
+
+	jis := unicodeToShiftJIS[c]
+	if jis == 0 {
+		p[0] = '?'
+		return 1, INVALID_CHAR
+	}
+
+	p[0] = byte(jis >> 8)
+	p[1] = byte(jis)
+	return 2, SUCCESS
 }
