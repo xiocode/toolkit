@@ -24,3 +24,6 @@ Toolkit For Go
 
 ## to
     A simple Go's type conversion
+
+## simplejson
+    bitly's simplejson
