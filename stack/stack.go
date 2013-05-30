@@ -8,10 +8,6 @@
 
 package stack
 
-import (
-	"fmt"
-)
-
 type Stack struct {
 	top  *Element
 	size int
