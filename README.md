@@ -27,3 +27,7 @@ Toolkit For Go
 
 ## simplejson
     bitly's simplejson
+
+## stack
+    https://gist.github.com/bemasher/1777766
+    A simple LIFO stack backed by a linked list implemented with golang.
