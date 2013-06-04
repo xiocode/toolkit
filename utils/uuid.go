@@ -11,8 +11,8 @@ package utils
 import (
 	"crypto/rand"
 	"fmt"
-	"github.com/xiocode/toolkit/log"
 	"io"
+	"log"
 )
 
 // UUID() provides unique identifier strings.
