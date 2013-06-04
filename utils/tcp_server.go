@@ -11,6 +11,7 @@ package utils
 import (
 	"log"
 	"net"
+	"reflect"
 	"runtime"
 	"strings"
 )
@@ -36,6 +37,7 @@ func TcpServer(listener net.Listener, handler TcpHandler) {
 			}
 			break
 		}
+		log.Panicln(reflect.TypeOf(handler))
 		go handler.Handle(clientConn)
 	}
 
