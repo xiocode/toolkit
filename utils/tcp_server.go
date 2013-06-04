@@ -37,7 +37,7 @@ func TcpServer(listener net.Listener, handler TcpHandler) {
 			}
 			break
 		}
-		log.Panicln(reflect.TypeOf(handler))
+		log.Println(reflect.TypeOf(handler))
 		go handler.Handle(clientConn)
 	}
 
