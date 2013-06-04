@@ -9,7 +9,7 @@
 package utils
 
 import (
-	"github.com/xiocode/toolkit/log"
+	"log"
 	"net"
 	"runtime"
 	"strings"
