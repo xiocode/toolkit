@@ -19,7 +19,7 @@ type TcpHandler interface {
 	Handle(net.Conn)
 }
 
-func TcpServer(listener net.Listener, handler TcpHandler) {
+func TcpServer(listener net.Listener, handler *TcpHandler) {
 	log.Printf("TCP: listening on %s", listener.Addr().String())
 
 	for {
