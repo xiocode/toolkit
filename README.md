@@ -36,4 +36,4 @@ Toolkit For Go
     Some utils.
 
 ## misc
-    misc/math/rpn 一个逆波兰式语法解析树，https://gist.github.com/achun/5730664
+    misc/math/rpn ReversePolishnotation AST，https://gist.github.com/achun/5730664
