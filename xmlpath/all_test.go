@@ -2,8 +2,8 @@ package xmlpath_test
 
 import (
 	"bytes"
-	"github.com/going/toolkit/xmlpath"
 	. "launchpad.net/gocheck"
+	"launchpad.net/xmlpath"
 	"testing"
 )
 
@@ -86,10 +86,7 @@ func (s *BasicSuite) TestLibraryTable(c *C) {
 type cerror string
 type exists bool
 
-var libraryTable = []struct {
-	path   string
-	result interface{}
-}{
+var libraryTable = []struct{ path string; result interface{} }{
 	// These are the examples in the package documentation:
 	{"/library/book/isbn", "0836217462"},
 	{"library/*/isbn", "0836217462"},
@@ -186,6 +183,7 @@ var libraryTable = []struct {
 	{"//self::comment()", []string{" Great book. ", " Another great book. "}},
 	{`comment("")`, cerror(`.*: comment\(\) has no arguments`)},
 
+
 	// Processing instructions.
 	{`/library/book/author/processing-instruction()`, `"go rocks"`},
 	{`/library/book/author/processing-instruction("echo")`, `"go rocks"`},
@@ -207,7 +205,7 @@ var libraryTable = []struct {
 }
 
 var libraryXml = []byte(
-	`<?xml version="1.0"?>
+`<?xml version="1.0"?> 
 <library>
   <!-- Great book. -->
   <book id="b0836217462" available="true">
@@ -312,8 +310,10 @@ func (s *BasicSuite) BenchmarkSimplePathExists(c *C) {
 	c.Assert(exists, Equals, true)
 }
 
+
+
 var instancesXml = []byte(
-	`<DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2011-12-15/">
+`<DescribeInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2011-12-15/">
   <requestId>98e3c9a4-848c-4d6d-8e8a-b1bdEXAMPLE</requestId>
   <reservationSet>
     <item>
