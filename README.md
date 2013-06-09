@@ -35,5 +35,9 @@ Toolkit For Go
 ## utils
     Some utils.
 
+## xmlpath
+    Package xmlpath implements a strict subset of the XPath specification for the Go language.
+    clone from http://launchpad.net/xmlpath
+
 ## misc
     misc/math/rpn ReversePolishnotation AST，https://gist.github.com/achun/5730664
