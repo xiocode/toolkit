@@ -15,3 +15,5 @@
 *.fig
 *.cmp
 *.tmp
+.hg
+.hgignore

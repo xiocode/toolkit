@@ -5,13 +5,48 @@
  * File:          toolkit.go
  * Description:   Toolkit
  */
-package toolkit
 
-/**
-* 一个Go的小工具包
-* to 用于类型转换
-* strftime 时间格式化
-* audio 音频相关，待完成
-* dig 用于获取结构体中取值
-* bong 一个简单的Protobuf+GoRPC实现
-**/
+// Toolkit For Go
+// ==========
+
+// ## bong
+//     A simple wrap for protobuf and rpc in goang
+
+// ## dig
+//     dig value from map or struct, fork from https://github.com/gosexy/dig
+
+// ## httpclient
+//     bitly's httpclient support timeout for go1.03
+
+// ## httpclientv2
+//     bitly's httpclient for go1.1
+
+// ## log
+//     qiniu's log ext for golang'log
+
+// ## mahonia
+//     Mahonia is a character-set conversion library implemented in Go
+
+// ## strftime
+//     Go's strftime like Python
+
+// ## to
+//     A simple Go's type conversion, fork from https://github.com/gosexy/to
+
+// ## simplejson
+//     bitly's simplejson
+
+// ## stack
+//     A simple LIFO stack backed by a linked list implemented with golang, fork from https://gist.github.com/bemasher/1777766
+
+// ## utils
+//     Some useful util collection.
+
+// ## xmlpath
+//     Package xmlpath implements a strict subset of the XPath specification for the Go language.
+//     clone from http://launchpad.net/xmlpath
+
+// ## misc
+//     misc/math/rpn ReversePolishnotation AST，fork from https://gist.github.com/achun/5730664
+
+package toolkit
