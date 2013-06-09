@@ -1,7 +1,7 @@
 .DS_Store
 .DS_Store?
 *.py[cod]
-*/.bzr/*
+.bzr
 *.o
 *.a
 *.so
@@ -15,5 +15,5 @@
 *.fig
 *.cmp
 *.tmp
-*/.hg/*
+.hg
 .hgignore
