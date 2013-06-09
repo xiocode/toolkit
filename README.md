@@ -1,11 +1,11 @@
-Toolkit For Go
+Toolkit For Gopher
 ==========
 
 ## bong
     A simple wrap for protobuf and rpc in goang
 
 ## dig
-    dig value from map or struct
+    dig value from map or struct, fork from https://github.com/gosexy/dig
 
 ## httpclient
     bitly's httpclient support timeout for go1.03
@@ -14,30 +14,29 @@ Toolkit For Go
     bitly's httpclient for go1.1
 
 ## log
-    qiniu's log ext for golang'log
+    qiniu's log ext for golang'log， form from https://github.com/qiniu/log
 
 ## mahonia
-    Mahonia is a character-set conversion library implemented in Go
+    Mahonia is a character-set conversion library implemented in Go, fork from https://code.google.com/p/mahonia/
 
 ## strftime
     Go's strftime like Python
 
 ## to
-    A simple Go's type conversion
+    A simple Go's type conversion, fork from https://github.com/gosexy/to
 
 ## simplejson
     bitly's simplejson
 
 ## stack
-    https://gist.github.com/bemasher/1777766
-    A simple LIFO stack backed by a linked list implemented with golang.
+    A simple LIFO stack backed by a linked list implemented with golang, fork from https://gist.github.com/bemasher/1777766
 
 ## utils
-    Some utils.
+    Some useful util collection.
 
 ## xmlpath
     Package xmlpath implements a strict subset of the XPath specification for the Go language.
     clone from http://launchpad.net/xmlpath
 
 ## misc
-    misc/math/rpn ReversePolishnotation AST，https://gist.github.com/achun/5730664
+    misc/math/rpn ReversePolishnotation AST，fork from https://gist.github.com/achun/5730664
