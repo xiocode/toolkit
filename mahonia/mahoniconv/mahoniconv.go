@@ -1,8 +1,8 @@
 package main
 
 import (
+	"code.google.com/p/mahonia"
 	"flag"
-	"github.com/going/toolkit/mahonia"
 	"io"
 	"log"
 	"os"
