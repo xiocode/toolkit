@@ -40,3 +40,6 @@ Toolkit For Gopher
 
 ## misc
     misc/math/rpn ReversePolishnotation AST，fork from https://gist.github.com/achun/5730664
+
+## gouuid
+    Pure Go UUID implementation fork from https://github.com/nu7hatch/gouuid
