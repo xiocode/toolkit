@@ -2,7 +2,7 @@ package uuid_test
 
 import (
 	"fmt"
-	"github.com/nu7hatch/gouuid"
+	"github.com/going/toolkit/gouuid"
 )
 
 func ExampleNewV4() {
