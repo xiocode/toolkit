@@ -1,10 +1,3 @@
-THE REPOSITORY HAS BEEN MOVED!
-==============================
-
-This is not the official repository, it has been moved to the
-http://github.com/going/toolkit organization's repo!
-
-
 Toolkit For Gopher
 ==========
 
