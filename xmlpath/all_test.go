@@ -2,11 +2,8 @@ package xmlpath_test
 
 import (
 	"bytes"
-<<<<<<< TREE
-	"github.com/going/toolkit/xmlpath"
-=======
 	"encoding/xml"
->>>>>>> MERGE-SOURCE
+	"github.com/going/toolkit/xmlpath"
 	. "launchpad.net/gocheck"
 	"testing"
 )
@@ -316,7 +313,9 @@ func (s *BasicSuite) BenchmarkSimplePathString(c *C) {
 
 func (s *BasicSuite) BenchmarkSimplePathStringUnmarshal(c *C) {
 	// For a vague comparison.
-	var result struct{ Str string `xml:"reservationSet>item>instancesSet>item>instanceType"` }
+	var result struct {
+		Str string `xml:"reservationSet>item>instancesSet>item>instanceType"`
+	}
 	for i := 0; i < c.N; i++ {
 		xml.Unmarshal(instancesXml, &result)
 	}
