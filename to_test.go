@@ -2,7 +2,7 @@ package toolkit_test
 
 import (
 	"fmt"
-	. "github.com/going/toolkit/xmlpath"
+	. "github.com/going/toolkit/to"
 	"reflect"
 	"testing"
 	"time"
