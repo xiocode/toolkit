@@ -1,6 +1,9 @@
 Toolkit For Gopher
 ==========
 
+[![Build Status](https://drone.io/github.com/going/toolkit/status.png)](https://drone.io/github.com/going/toolkit/latest)
+
+
 ## bong
     A simple wrap for protobuf and rpc in goang
 
