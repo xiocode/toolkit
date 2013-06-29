@@ -1,3 +1,10 @@
+THE REPOSITORY HAS BEEN MOVED!
+==============================
+
+This is not the official repository, it has been moved to the
+http://github.com/going/toolkit organization's repo!
+
+
 Toolkit For Gopher
 ==========
 
@@ -40,6 +47,9 @@ Toolkit For Gopher
 
 ## misc
     misc/math/rpn ReversePolishnotation AST，fork from https://gist.github.com/achun/5730664
+<<<<<<< HEAD
 
 ## gouuid
     Pure Go UUID implementation fork from https://github.com/nu7hatch/gouuid
+=======
+>>>>>>> 36876d1a2955bfc70e80050b090071988f094a94
