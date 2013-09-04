@@ -1,14 +1,8 @@
-/**
- * Author:        Tony.Shao
- * Email:         xiocode@gmail.com
- * Github:        github.com/xiocode
- * File:          to_test.go
- * Description:   Test Converter
- */
-package to
+package toolkit_test
 
 import (
 	"fmt"
+	. "github.com/going/toolkit/to"
 	"reflect"
 	"testing"
 	"time"
@@ -372,7 +366,6 @@ func BenchmarkBool(b *testing.B) {
 	}
 }
 
-/*
 func BenchmarkMap(b *testing.B) {
 	mymap := map[int]string{
 		1: "a",
@@ -394,7 +387,6 @@ func BenchmarkList(b *testing.B) {
 		List(mylist)
 	}
 }
-*/
 
 func BenchmarkConvert(b *testing.B) {
 	for i := 0; i < b.N; i++ {

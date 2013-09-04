@@ -10,7 +10,7 @@ package dig
 
 import (
 	"fmt"
-	"github.com/xiocode/toolkit/to"
+	"github.com/going/toolkit/to"
 	"reflect"
 )
 
