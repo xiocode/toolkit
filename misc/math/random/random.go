@@ -13,7 +13,7 @@ import (
 	"time"
 )
 
-func randomInt64(min, max int64) int64 {
+func RandomInt64(min, max int64) int64 {
 	rand.Seed(time.Now().Unix())
 	return rand.Int63n(max-min) + min
 }
