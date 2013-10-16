@@ -53,3 +53,6 @@ Toolkit For Gopher
 ## gouuid
     Pure Go UUID implementation fork from https://github.com/nu7hatch/gouuid
 
+## mapset
+    A simple set type for the Go language. Fork from https://github.com/deckarep/golang-set
+
