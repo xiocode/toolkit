@@ -1,3 +1,0 @@
-[submodule "set"]
-	path = set
-	url = git@github.com:deckarep/golang-set.git
